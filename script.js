@@ -7,20 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
     sendButton.addEventListener('click', function () {
         const messageText = messageInput.value.trim();
         if (messageText !== '') {
-            // Display user message
+          
             displayMessage('You', messageText);
 
-            // Make API request
+            
             fetch(apiEndpoint + encodeURIComponent(messageText))
                 .then((response) => response.json())
                 .then((data) => {
-                    // Display AI response
+                  
                     displayMessage('AI', data.message);
 
-                    // Check for image URLs in the response
+                   
                     if (data.imageUrls && data.imageUrls.length > 0) {
                         data.imageUrls.forEach((imageUrl) => {
-                            // Display each image as a clickable link
+                           
                             displayImage(imageUrl);
                         });
                     }
